@@ -1,0 +1,32 @@
+<div class="example-loading-shade" *ngIf="isLoading">
+  <mat-progress-spinner
+    class="tp-margin"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+    *ngIf="isLoading"></mat-progress-spinner>
+</div>
+<div class="container-fluid">
+  <mat-card  *ngIf="!isEmpty">
+    <mat-card-title>Search Books/Albums</mat-card-title>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Item Type</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{book.title}}</td>
+        <td>{{book.authors}}</td>
+        <td>{{book.itemName}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </mat-card>
+  <mat-card *ngIf="isEmpty">
+    <mat-card-title>No Data Found!</mat-card-title>
+  </mat-card>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+    <h2 class="text-center">Search for a book/album</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Enter the book/album detail:</label>
+        <input type="text" formControlName="title" placeholder="Search for the book/album" name="title" class="form-control" id="title">
+      </div>
+      <button class="btn btn-success">Submit</button>
+    </form>
+</div>
