@@ -1,6 +1,6 @@
-package com.cognizant.garage.web.filter;
+package com.IDEXX.animana.assessment.filter;
 
-import com.cognizant.garage.business.service.MetricService;
+import com.IDEXX.animana.assessment.service.MetricService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 

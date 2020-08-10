@@ -70,3 +70,4 @@ The REST API details are mentioned in the below url . The port used is 8080.
 ```
 ## Endpoints :
 * /retrieveResult/{searchString}           --To search related books and albums from Google Books API and iTunes API for the passed input string
+* /customMetric                         --To expose time taken by request and request status

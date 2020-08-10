@@ -1,4 +1,4 @@
-package com.cognizant.garage.business.service;
+package com.IDEXX.animana.assessment.service;
 
 
 import org.junit.Before;

@@ -1,6 +1,7 @@
-package com.cognizant.garage.business.service;
+package com.IDEXX.animana.assessment.service;
 
-import com.cognizant.garage.business.domain.response.MetricResponse;
+
+import com.IDEXX.animana.assessment.model.MetricResponse;
 
 public interface MetricService {
     void incrementNumberOfAllRequests();

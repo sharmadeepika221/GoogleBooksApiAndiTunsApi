@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/custom-metric")
-public class MetricServiceController {
+@RequestMapping("/customMetric")
+public class MetricController {
     final private MetricService metricService;
 
-    public MetricServiceController(MetricService metricService) {
+    public MetricController(MetricService metricService) {
         this.metricService = metricService;
     }
 

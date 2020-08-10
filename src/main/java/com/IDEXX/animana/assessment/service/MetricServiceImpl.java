@@ -1,16 +1,18 @@
-package com.cognizant.garage.business.service;
+package com.IDEXX.animana.assessment.service;
 
-import com.cognizant.garage.business.domain.response.MetricResponse;
-import lombok.extern.slf4j.Slf4j;
+import com.IDEXX.animana.assessment.model.MetricResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Slf4j
 @Service
 public class MetricServiceImpl implements MetricService {
+
+    private static final Logger log = LoggerFactory.getLogger(MetricServiceImpl.class);
     final private static Map<String, Long> COUNTER = new ConcurrentHashMap<>();
     final private static Map<String, Long> TIMER = new ConcurrentHashMap<>();
     final private static String TOTAL_REQUESTS = "totalRequests";

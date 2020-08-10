@@ -4,8 +4,10 @@ import com.IDEXX.animana.assessment.model.SearchResponse;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
@@ -20,6 +22,9 @@ import java.util.concurrent.CompletableFuture;
 public class SearchServiceImpl implements SearchService{
 
     private static final Logger log = LoggerFactory.getLogger(SearchServiceImpl.class);
+
+    @Autowired
+    private MeterRegistry registry;
 
     @Value("${rest.api.books.url}")
     private String googleBooksApiUrl;
@@ -38,7 +43,6 @@ public class SearchServiceImpl implements SearchService{
             searchResults = new ArrayList<SearchResponse>(booksList.get());
             searchResults.addAll(albumsList.get());
         } catch (Throwable e) {
-            //throw e.getCause();
             log.error("There is some issue in getting the result from upstream", e);
         }
         Collections.sort(searchResults, Comparator.comparing(SearchResponse::getTitle));
