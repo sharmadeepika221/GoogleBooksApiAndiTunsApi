@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Service class to fetch data from Google Books Api and iTunes API.
+ */
 @Service
 public class SearchServiceImpl implements SearchService{
 
@@ -35,6 +38,10 @@ public class SearchServiceImpl implements SearchService{
     @Value("${rest.api.albums.limit}")
     private String albumsLimit;
 
+    /**
+     * @param searchString
+     * @return
+     */
     public List<SearchResponse> retrieveBookaAndAlbumResults(String searchString) {
         CompletableFuture<List<SearchResponse>> booksList = getBooks(searchString);
         CompletableFuture<List<SearchResponse>> albumsList = getAlbums(searchString);
@@ -50,6 +57,11 @@ public class SearchServiceImpl implements SearchService{
 
     }
 
+    /**
+     * This method calls to Google Books API and gets the 5 books related to input string.
+     * @param name
+     * @return
+     */
     @Async
     public CompletableFuture<List<SearchResponse>> getBooks(String name) {
         name = name.replaceAll(" ", "%20");
@@ -101,6 +113,11 @@ public class SearchServiceImpl implements SearchService{
         return book;
     }
 
+    /**
+     * This method calls to iTunes API and gets the 5 albums related to input string.
+     * @param name
+     * @return
+     */
     @Async
     public CompletableFuture<List<SearchResponse>> getAlbums(String name) {
 

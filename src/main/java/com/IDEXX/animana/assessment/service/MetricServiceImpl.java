@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Service class to get the custom metrics
+ */
 @Service
 public class MetricServiceImpl implements MetricService {
 
@@ -38,30 +41,46 @@ public class MetricServiceImpl implements MetricService {
         TIMER.put(TOTAL_TIME, 0L);
     }
 
+    /**
+     * Increment the total no of requests.
+     */
     @Async
     @Override
     public void incrementNumberOfAllRequests() {
         COUNTER.replace(TOTAL_REQUESTS, COUNTER.get(TOTAL_REQUESTS) + 1);
     }
 
+    /**
+     * Increment the no of requests whose status is 200.
+     */
     @Async
     @Override
     public void incrementNumberOfRequestsThatResult200Status() {
         COUNTER.replace(TOTAL_REQUESTS_200, COUNTER.get(TOTAL_REQUESTS_200) + 1);
     }
 
+    /**
+     * Increment the no of requests whose status is 400.
+     */
     @Async
     @Override
     public void incrementNumberOfRequestsThatResult4XXStatus() {
         COUNTER.replace(TOTAL_REQUESTS_4XX, COUNTER.get(TOTAL_REQUESTS_4XX) + 1);
     }
 
+    /**
+     * Increment the no of requests whose status is 500.
+     */
     @Async
     @Override
     public void incrementNumberOfRequestsThatResult5XXStatus() {
         COUNTER.replace(TOTAL_REQUESTS_5XX, COUNTER.get(TOTAL_REQUESTS_5XX) + 1);
     }
 
+    /**
+     * This method calculates the metrics.
+     * @return MetricResponse
+     */
     @Override
     public MetricResponse getMetricResult() {
         log.info("Entered Metric result");
@@ -71,6 +90,10 @@ public class MetricServiceImpl implements MetricService {
         return metricResponse;
     }
 
+    /**
+     * sets the max, avg, min and total time taken by the request
+     * @param millis
+     */
     @Async
     @Override
     public void setRequestTimeInMillis(long millis) {

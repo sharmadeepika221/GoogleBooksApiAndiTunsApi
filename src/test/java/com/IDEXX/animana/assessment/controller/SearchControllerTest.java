@@ -34,7 +34,7 @@ public class SearchControllerTest {
 
     @Test
     @DisplayName("GET /retrieveResult - Success")
-    void testSearchCustomerByName() throws Exception {
+    void testSearchResult_success() throws Exception {
         List<SearchResponse> results = new ArrayList<>();
 
         SearchResponse result1 = new SearchResponse("title1", "author1", "Book");

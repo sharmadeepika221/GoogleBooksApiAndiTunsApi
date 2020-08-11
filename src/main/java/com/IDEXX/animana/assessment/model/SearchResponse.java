@@ -1,5 +1,8 @@
 package com.IDEXX.animana.assessment.model;
 
+/**
+ * This class holds the search response data.
+ */
 public class SearchResponse {
     private String title;
     private String authors;

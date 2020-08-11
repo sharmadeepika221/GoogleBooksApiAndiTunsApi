@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * This class holds the metrics response data.
+ */
 public class MetricResponse {
 
     final private Map<String, Long> counter = new HashMap<>();
